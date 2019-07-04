@@ -1,7 +1,7 @@
 {
-  "name": "yapi-plugin-interface-oauth2-token",
+  "name": "yapi-plugin-interface-oauth2-token-italkbb",
   "version": "0.0.1",
-  "description": "为了解决yapi每个接口都需要鉴权的问题",
+  "description": "为了解决yapi每个接口都需要鉴权的问题，基于interface-oauth2-token的修改",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/shouldnotappearcalm/yapi-plugin-interface-oauth2.git"
+    "url": "git+https://github.com/KeithMorning/yapi-plugin-interface-oauth2-token.git"
   },
   "keywords": [
     "yapi"

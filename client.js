@@ -2,7 +2,7 @@ import interfaceOauth from './component/interfaceOauth2/interfaceOauth2.js'
 
 function hander(routers) {
   routers.interfaceOauth = {
-    name: '接口自动鉴权',
+    name: '接口自动鉴权iTalkBB',
     component: interfaceOauth
   };
 }

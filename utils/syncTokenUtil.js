@@ -2,6 +2,7 @@ const schedule = require('node-schedule');
 const projectModel = require('models/project.js');
 const oauthModel = require('../model/oauthModel.js');
 const yapi = require('yapi.js');
+const {URL} = require('url');
 const jobMap = new Map();
 
 class syncTokenUtils {
@@ -197,8 +198,23 @@ class syncTokenUtils {
     async execGetToken(getTokenUrl) {
         getTokenUrl = getTokenUrl.trim().replace("{time}", new Date().getTime());
         const axios = require('axios')
+        const qs = require('qs')
+        console.log('will update token use from' +getTokenUrl)
+        testurl = new URL(getTokenUrl)
+        urlpath = testurl.origin + testurl.pathname
+        console.log(urlpath)
+
+        var data = {}
+        var allKeys = testurl.searchParams.keys()
+        for (const name of allKeys) {
+            data[name]=testurl.searchParams.get(name)
+        }
+
+        console.log(data)
+
         try {
-            let response = await axios.post(getTokenUrl, {});
+            let response = await axios.post(urlpath, qs.stringify(data),{headers: {'Content-Type': 'application/x-www-form-urlencoded'}}
+            );
             if (response.status > 400) {
                 throw new Error(`http status "${response.status}"` + '获取数据失败，请确认 getTokenUrl 是否正确')
             }
