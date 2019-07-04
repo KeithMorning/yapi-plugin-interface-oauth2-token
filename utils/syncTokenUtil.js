@@ -200,8 +200,8 @@ class syncTokenUtils {
         const axios = require('axios')
         const qs = require('qs')
         console.log('will update token use from' +getTokenUrl)
-        testurl = new URL(getTokenUrl)
-        urlpath = testurl.origin + testurl.pathname
+        var testurl = new URL(getTokenUrl)
+        var urlpath = testurl.origin + testurl.pathname
         console.log(urlpath)
 
         var data = {}
